@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/user/services.css">
+    <title>Tubank - Your Safe Web Wallet</title>
+</head>
+<body>
+    <main id="container">
+        <div id="content">
+            <form action="" method="post" id="register-form">
+                <div id="register-form__inputs-ctn">
+                    <div id="logo-ctn">
+                        <img src="" alt="logo from Tubank">
+                    </div>
+                    <span id="register-error"></span>
+                    <div>
+                        <label for="name">Service name</label><input type="text" name="name" id="name"/>
+                    </div>
+                    <div>
+                        <label for="value">Value</label><input type="text" placeholder="$ 0,00" inputmode="numeric" pattern="\d*" name="value" id="value" onkeyup="{limpiarNumero(this)}"/>
+                    </div>
+                    <div>
+                        <label for="date">Expiry Date</label><input type="date" name="date" id="date" placeholder="dd/mm/yyyy" min="2020-01-01" max="2030-12-31"/>
+                    </div>
+                    <button type="submit">Add Service</button>
+                    <span>Already registered? <a href="./login.html">Log In</a></span>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    <script src="../../scripts/user/services.js"></script>
+</body>

@@ -1,4 +1,5 @@
-const user = JSON.parse(localStorage.getItem('user'));
+let user = JSON.parse(localStorage.getItem('user'));
+let usersArray = JSON.parse(localStorage.getItem('users'));
 const checkingEl = document.getElementById('checking-li');
 const servicesEl = document.getElementById('services-li');
 const depositsEl = document.getElementById('deposits-li');
@@ -8,17 +9,19 @@ const checkingUlEl = document.getElementById('checking-ul');
 const balanceEl = document.getElementById('balance-amount');
 const cbuEl = document.getElementById('cbu');
 const homeIframeEl = document.getElementById('content-iframe');
+const servicesUlEl = document.getElementById('services-ul');
+const addServiceLi = servicesUlEl.children[0];
+const delServiceLi = servicesUlEl.children[1];
+const payService =  servicesUlEl.children[2];
+const myPaymentsLi =  servicesUlEl.children[3];
 
 function showChecking() {
     if (!checkingUlEl.classList.contains('slide-in-left') && !checkingUlEl.classList.contains('slide-out-left')) {
-        checkingUlEl.classList.toggle('displayNone');
-        checkingUlEl.classList.add('slide-in-left');
-        return
+        return checkingUlEl.classList.replace('displayNone', 'slide-in-left');
     } else if (checkingUlEl.classList.contains('slide-in-left')) {
         checkingUlEl.classList.replace('slide-in-left', 'slide-out-left');
         setTimeout(()=> {
-            checkingUlEl.classList.remove('slide-out-left');
-            return checkingUlEl.classList.add('displayNone');
+            return checkingUlEl.classList.replace('slide-out-left', 'displayNone');
         }, 1000);
     } 
 }
@@ -29,17 +32,49 @@ function showCBU() {
     homeIframeEl.setAttribute('src', './cbu.html');
 }
 function showServices() {
-    homeIframeEl.setAttribute('src', './services.html');
+    if (!servicesUlEl.classList.contains('slide-in-left')) {
+        servicesUlEl.classList.replace('displayNone', 'slide-in-left');
+        return
+    }
+    if (servicesUlEl.classList.contains('slide-in-left')) {
+        servicesUlEl.classList.replace('slide-in-left', 'slide-out-left');
+        setTimeout( ()=> {
+            return servicesUlEl.classList.replace('slide-out-left', 'displayNone');
+        },1000 );
+    }
 }
 function showDeposits() {
     homeIframeEl.setAttribute('src', './deposits.html')
 }
 function showTransfers() {
-    homeIframeEl.setAttribute('src', './transfers.html')
+    homeIframeEl.setAttribute('src', './transfers.html');
 }
 function logoutUser() {
+    user = JSON.parse(localStorage.getItem('user'));
+    /* usersArray.push({
+        name: 'Rodrigo', 
+        lastname: 'Nascimento', 
+        username: 'rdmadeira', 
+        password: '1234', 
+        amount: 0,
+        savedUsers: [],
+        services: [],
+        cbu: "64acfe61-3eb7-40dc-b9b0-e495edb3e63f",
+    }) */
+    
+    usersArray.forEach((item, index)=> {
+        item.username === user.username && item.password === user.password ? usersArray.splice(index,1) && usersArray.push(user) : item;       
+    });
+    let usersJson = JSON.stringify(usersArray);    
+    localStorage.setItem('users', usersJson);
     localStorage.removeItem('user');
     location.href = '../../public/user/login.html';
+}
+function showAddService() {
+    homeIframeEl.setAttribute('src', './addservice.html')
+}
+function showPayServices() {
+    homeIframeEl.setAttribute('src', './payservices.html')
 }
 
 checkingEl.addEventListener('click', ()=> showChecking());
@@ -49,3 +84,7 @@ servicesEl.addEventListener('click', ()=> showServices());
 depositsEl.addEventListener('click', ()=> showDeposits());
 transfersEl.addEventListener('click', ()=> showTransfers());
 logOutEl.addEventListener('click', ()=> logoutUser());
+addServiceLi.addEventListener('click', ()=> showAddService())
+delServiceLi.addEventListener('click', ()=> showDelService())
+payService.addEventListener('click', ()=> showPayServices())
+myPaymentsLi.addEventListener('click', ()=> showMyPayments())

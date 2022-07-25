@@ -1,0 +1,18 @@
+#payments-ctn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    column-gap: 10vw;
+    row-gap: 5vh;
+}
+.service-card {
+    position: relative;
+    padding: 2vw 4vw;
+    border: transparent solid 2px;
+}
+.span-card {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 1.5vw;
+}
