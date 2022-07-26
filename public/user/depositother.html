@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/user/deposits.css">
+    <title>Tubank - Your Safe Web Wallet</title>
+</head>
+<body>
+    <main id="container">
+        <div id="content">
+            <form action="" method="post" class="register-form" id="other-form">
+                <div id="register-form__inputs-ctn">
+                    <div id="logo-ctn">
+                        <img src="" alt="logo from Tubank">
+                    </div>
+                    <span id="register-error"></span>
+                    <div>
+                        <label for="name">CBU</label><input type="text" name="cbu" id="cbu"/>
+                    </div>
+                    <div>
+                        <label for="value">Amount</label><input type="text" placeholder="$ 0,00" inputmode="numeric" pattern="\d*" name="value" id="value" onkeyup="{limpiarNumero(this)}"/>
+                    </div>
+                    <div>
+                        <label for="reason">Reason</label><select name="reason" id="reason">
+                            <option value="alquiler">Alquiler</option>
+                            <option value="rental">Rental</option>
+                            <option value="lending">Lending</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add Service</button>
+                    <span>Already registered? <a href="./login.html">Log In</a></span>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    <script src="../../scripts/user/depositowner.js"></script>
+</body>

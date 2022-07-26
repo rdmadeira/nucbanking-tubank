@@ -3,6 +3,9 @@ let usersArray = JSON.parse(localStorage.getItem('users'));
 const checkingEl = document.getElementById('checking-li');
 const servicesEl = document.getElementById('services-li');
 const depositsEl = document.getElementById('deposits-li');
+const depositsUlEl = document.getElementById('deposits-ul');
+const ownerAccountLi = depositsUlEl.children[0];
+const otherAccountLi = depositsUlEl.children[1];
 const transfersEl = document.getElementById('transfers-li');
 const logOutEl =  document.getElementById('logout');
 const checkingUlEl = document.getElementById('checking-ul');
@@ -12,7 +15,7 @@ const homeIframeEl = document.getElementById('content-iframe');
 const servicesUlEl = document.getElementById('services-ul');
 const addServiceLi = servicesUlEl.children[0];
 const delServiceLi = servicesUlEl.children[1];
-const payService =  servicesUlEl.children[2];
+const payServiceLi =  servicesUlEl.children[2];
 const myPaymentsLi =  servicesUlEl.children[3];
 
 function showChecking() {
@@ -31,6 +34,8 @@ function showBalance() {
 function showCBU() {
     homeIframeEl.setAttribute('src', './cbu.html');
 }
+
+/* ******************************************************************************************** */
 function showServices() {
     if (!servicesUlEl.classList.contains('slide-in-left')) {
         servicesUlEl.classList.replace('displayNone', 'slide-in-left');
@@ -43,48 +48,68 @@ function showServices() {
         },1000 );
     }
 }
-function showDeposits() {
-    homeIframeEl.setAttribute('src', './deposits.html')
-}
-function showTransfers() {
-    homeIframeEl.setAttribute('src', './transfers.html');
-}
-function logoutUser() {
-    user = JSON.parse(localStorage.getItem('user'));
-    /* usersArray.push({
-        name: 'Rodrigo', 
-        lastname: 'Nascimento', 
-        username: 'rdmadeira', 
-        password: '1234', 
-        amount: 0,
-        savedUsers: [],
-        services: [],
-        cbu: "64acfe61-3eb7-40dc-b9b0-e495edb3e63f",
-    }) */
-    
-    usersArray.forEach((item, index)=> {
-        item.username === user.username && item.password === user.password ? usersArray.splice(index,1) && usersArray.push(user) : item;       
-    });
-    let usersJson = JSON.stringify(usersArray);    
-    localStorage.setItem('users', usersJson);
-    localStorage.removeItem('user');
-    location.href = '../../public/user/login.html';
-}
 function showAddService() {
     homeIframeEl.setAttribute('src', './addservice.html')
 }
 function showPayServices() {
     homeIframeEl.setAttribute('src', './payservices.html')
 }
+function showDelServices() {
+    homeIframeEl.setAttribute('src', './delservices.html')
+}
+function showMyPayments() {
+    homeIframeEl.setAttribute('src', './servicesproofs.html');
+}
+
+/* ******************************************************************************************** */
+function showDeposits() {
+    if(!depositsUlEl.classList.contains('slide-in-left')) {
+        depositsUlEl.classList.replace('displayNone','slide-in-left');
+        return
+    }
+    if (depositsUlEl.classList.contains('slide-in-left')) {
+        depositsUlEl.classList.replace('slide-in-left', 'slide-out-left');
+        setTimeout( ()=> {
+            return depositsUlEl.classList.replace('slide-out-left', 'displayNone');
+        },1000)
+    }
+}
+function showDepositOwner() {
+    homeIframeEl.setAttribute('src', './depositowner.html');
+}
+function showDepositOther() {
+    homeIframeEl.setAttribute('src', './depositother.html');
+}
+/* ******************************************************************************************** */
+function showTransfers() {
+    homeIframeEl.setAttribute('src', './transfers.html');
+}
+function logoutUser() {
+    user = JSON.parse(localStorage.getItem('user'));
+    const userIndex = usersArray.findIndex(item=>item.username === user.username && item.cbu === user.cbu);
+        if (userIndex !== -1) {
+            usersArray[userIndex] = user;
+        }
+    let usersJson = JSON.stringify(usersArray);    
+    localStorage.setItem('users', usersJson);
+    localStorage.removeItem('user');
+    location.href = '../../public/user/login.html';
+}
+
+
 
 checkingEl.addEventListener('click', ()=> showChecking());
 balanceEl.addEventListener('click', ()=> showBalance());
 cbuEl.addEventListener('click', ()=> showCBU());
-servicesEl.addEventListener('click', ()=> showServices());
 depositsEl.addEventListener('click', ()=> showDeposits());
+ownerAccountLi.addEventListener('click', ()=> showDepositOwner());
+otherAccountLi.addEventListener('click', ()=> showDepositOther())
 transfersEl.addEventListener('click', ()=> showTransfers());
-logOutEl.addEventListener('click', ()=> logoutUser());
+
+servicesEl.addEventListener('click', ()=> showServices());
 addServiceLi.addEventListener('click', ()=> showAddService())
-delServiceLi.addEventListener('click', ()=> showDelService())
-payService.addEventListener('click', ()=> showPayServices())
+delServiceLi.addEventListener('click', ()=> showDelServices())
+payServiceLi.addEventListener('click', ()=> showPayServices())
 myPaymentsLi.addEventListener('click', ()=> showMyPayments())
+
+logOutEl.addEventListener('click', ()=> logoutUser());

@@ -6,9 +6,9 @@ const dateInput = form.date;
 const registerError = document.getElementById('register-error');
 const userServices = user.services;
 
-function limpiarNumero(obj) {
+function limpiarNumero(e) {
     /* El evento "change" sólo saltará si son diferentes */
-    obj.value = obj.value.replace(/\D/g, '');
+    e.value = e.value.replace(/\D/g, '');
 }
 function addService(e) {
     e.preventDefault();
@@ -22,16 +22,31 @@ function addService(e) {
     if (service === '' || valueAmount === '' || date === '') {
         registerError.appendChild(document.createTextNode(`Please, fill out all fields`));
         return registerError.style.display = 'block';
-    } else {
+    } else if (userServices.some(item => item.service === service) === true) {
+        registerError.appendChild(document.createTextNode(`Service Already Exists!`));
+        return registerError.style.display = 'block';
+    }
+    else {
         const newService = {
             'service': service,
             'value': valueAmount,
-            'expiry-date': date,
+            'date': date,
+            'paid': false,
         }
         userServices.push(newService);
-        const userJson = JSON.stringify(user);
-        localStorage.setItem('user', userJson);
+        setItemUserAndUsers(user);
         location.href = './payservices.html';
+        function setItemUserAndUsers(u) {
+            let userJson = JSON.stringify(u);
+            localStorage.setItem('user', userJson);
+            let usersArray = JSON.parse(localStorage.getItem('users'));
+            const userIndex = usersArray.findIndex(item=>item.username === user.username && item.cbu === user.cbu);
+            if (userIndex !== -1) {
+                usersArray[userIndex] = u;
+            }
+            let usersJson = JSON.stringify(usersArray);    
+            localStorage.setItem('users', usersJson);
+        }
     }
     
 }
