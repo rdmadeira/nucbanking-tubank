@@ -55,7 +55,6 @@ function depositOnOwnerCbu(e) {
 function setItemUserAndUsers(u,ot) {
     let userJson = JSON.stringify(u);
     localStorage.setItem('user', userJson);
-
     let usersArray = JSON.parse(localStorage.getItem('users'));
     const userIndex = usersArray.findIndex(item=>item.username === u.username && item.cbu === u.cbu);
     const otherUserIndex =  usersArray.findIndex(item=>item.username === ot.username && item.cbu === ot.cbu);

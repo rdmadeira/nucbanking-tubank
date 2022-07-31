@@ -36,8 +36,7 @@ function depositOnOwnerCbu(e) {
         contentDiv.insertAdjacentElement("afterbegin", newDiv);
         newDiv.setAttribute('class', 'success-alert');
         newDiv.innerHTML = template.innerHTML;
-        document.querySelector('#content #button-ok').addEventListener('click', ()=> location.href = 'depositowner.html')
-        
+        document.querySelector('#content #button-ok').addEventListener('click', ()=> location.href = 'depositowner.html');
     }
 }
 

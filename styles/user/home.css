@@ -1,3 +1,4 @@
+@import url('./index.css');
 * {
     box-sizing: border-box;
     padding: 0;
@@ -9,7 +10,6 @@ ul {
 #container {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     width: 100vw;
 }
 aside {
@@ -18,8 +18,9 @@ aside {
     justify-content: start;
     align-items: flex-start;
     width: 25%;
-    height: 90vh;
     border-right: double black 2px;
+    padding: 30px 0;
+    background: var(--maximum-yellow);
 }
 main {
     width: 75%;
@@ -38,7 +39,7 @@ nav>ul {
     justify-content: center;
     align-items: flex-start;
     row-gap: 3vh;
-    margin: 1vh 1vw 0 2vw;
+    margin: 1vh 0 0 0;
 }
 .logo-ctn {
     width: 20%;
@@ -46,8 +47,10 @@ nav>ul {
     margin-bottom: 5vh;
 }
 nav li {
-    width: fit-content;
+    width: 100%;
     padding: 1vw 2vw;
+    background: var(--ultramarine-blue);
+    color: var(--maximum-yellow);
 }
 #logout {
     margin-top: 3vw;
@@ -64,6 +67,16 @@ nav li:hover {
     border: none;
     overflow: hidden;
 }
+#checking-ul, #services-ul, #deposits-ul {
+    text-align: end;
+    width: 135%;
+    margin: 0;
+}
+#content-main {
+    background-color: var(--background-logo);
+    color: var(--ultramarine-blue);
+    width: 100%;
+}
 
 /* ******************* Animations ************************* */
 .slide-in-left {
@@ -76,13 +89,15 @@ nav li:hover {
 }
 @keyframes slide-in-left {
     0% {
-        -webkit-transform: translateX(-1000px);
-                transform: translateX(-1000px);
+        -webkit-transform: scaleX(0) translateX(-500px);
+                transform: scaleX(0) translateX(-500px);
+                transform-origin: left;
         opacity: 0;
       }
       100% {
-        -webkit-transform: translateX(5vw);
-                transform: translateX(5vw);
+        -webkit-transform: scaleX(1) translateX(0);
+                transform: scaleX(1) translateX(0);
+                transform-origin: left;
         opacity: 1;
       }
 }

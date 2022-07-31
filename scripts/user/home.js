@@ -95,7 +95,15 @@ function logoutUser() {
     localStorage.removeItem('user');
     location.href = '../../public/user/login.html';
 }
-
+function slideOutAllUl() {
+    const slidesOnLeft =  document.querySelectorAll('.slide-in-left');
+    slidesOnLeft.forEach(item => {
+        item.classList.replace('slide-in-left', 'slide-out-left');
+        setTimeout( ()=> {
+            item.classList.replace('slide-out-left', 'displayNone');
+        },1000 );
+    });
+}
 
 
 checkingEl.addEventListener('click', ()=> showChecking());
@@ -105,11 +113,10 @@ depositsEl.addEventListener('click', ()=> showDeposits());
 ownerAccountLi.addEventListener('click', ()=> showDepositOwner());
 otherAccountLi.addEventListener('click', ()=> showDepositOther())
 transfersEl.addEventListener('click', ()=> showTransfers());
-
 servicesEl.addEventListener('click', ()=> showServices());
 addServiceLi.addEventListener('click', ()=> showAddService())
 delServiceLi.addEventListener('click', ()=> showDelServices())
 payServiceLi.addEventListener('click', ()=> showPayServices())
 myPaymentsLi.addEventListener('click', ()=> showMyPayments())
-
 logOutEl.addEventListener('click', ()=> logoutUser());
+homeIframeEl.addEventListener('mouseover', () => slideOutAllUl());

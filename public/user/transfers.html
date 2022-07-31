@@ -4,32 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/user/home.css">
     <link rel="stylesheet" href="../../styles/user/transfers.css">
     <title>Tubank - Your Safe Web Wallet</title>
 </head>
 <body>
-    <main id="container">
-        <template>
-            <h4>Deposit Completed Successfully!!</h4>
-            <button id="button-ok">OK</button>
-        </template>
+    <main id="content-main">
         <div id="content">
             <h1>Transfers</h1>
-            <form action="" method="post" class="register-form" id="depo-form">
+            <form action="" method="post" class="register-form" id="transfer-form">
                 <div id="register-form__inputs-ctn">
                     <div id="logo-ctn">
                         <img src="" alt="logo from Tubank">
                     </div>
                     <div id="register-error"></div>
                     <div>
-                        <label for="name">From Account:</label><input type="text" name="cbu" id="cbu" readonly/>
+                        <label for="cbu">From Account:</label><input type="text" name="cbu" id="cbu" readonly/>
                     </div>
                     <div>
-                        <label for="value">Amount:</label><input type="text" placeholder="$ 0,00" inputmode="numeric" pattern="\d*" name="value" id="value" onkeyup="{limpiarNumero(this)}"/>
+                        <label for="amount">Amount:</label><input type="text" placeholder="$ 0,00" inputmode="numeric" pattern="\d*" name="amount" id="amount" onkeyup="{limpiarNumero(this)}"/>
                     </div>
                     <div>
                         <label for="saved-users-select">Transfer to:</label>
                         <select name="saved-users" id="saved-users-select">
+                            <option value="" selected disabled hidden>Choose Alias</option>
                         </select>
                     </div>
                     <div>
@@ -45,12 +43,13 @@
                         </select>
                     </div>
                     
-                    <button type="submit">Deposit</button>
+                    <button type="submit">Transfer</button>
                 </div>
 
             </form>
             <div id="search-user-div">
                 <form action="" method="post" id="search-user">
+                    <div id="search-error"></div>
                     <label for="cbu-search">CBU:</label><input type="text" name="cbu-search" id="cbu-search"/>
                     <button type="submit">Search</button>
                 </form>
@@ -58,9 +57,9 @@
             <div id="save-user-div">
                 <form action="" method="post" id="save-user">
                     <label for="cbu-save-input">CBU</label><input type="text" name="cbu-save" id="cbu-save-input" readonly/>
-                    <label for="name-save-input">Name: </label><input type="text" name="name-save" id="name-save-input" readonly/>
-                    <label for="alias-save">Add an Alias</label><input type="text" name="alias-save" id="alias-save"/>
-                    <button type="submit">Save</button>
+                    <p id="cbu-owner-name"></p>
+                    <label for="alias-save">Add an Alias</label><input type="text" name="alias-save" id="save-alias"/>
+                    <button type="submit">Save CBU</button>
                 </form>
             </div>
         </div>
