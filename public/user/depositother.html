@@ -9,13 +9,18 @@
 </head>
 <body>
     <main id="container">
+        <template>
+            <h4>Deposit Completed Successfully!!</h4>
+            <button id="button-ok">OK</button>
+        </template>
         <div id="content">
-            <form action="" method="post" class="register-form" id="other-form">
+            <h1>Deposit in third party account</h1>
+            <form action="" method="post" class="register-form" id="depo-form">
                 <div id="register-form__inputs-ctn">
                     <div id="logo-ctn">
                         <img src="" alt="logo from Tubank">
                     </div>
-                    <span id="register-error"></span>
+                    <div id="register-error"></div>
                     <div>
                         <label for="name">CBU</label><input type="text" name="cbu" id="cbu"/>
                     </div>
@@ -23,19 +28,19 @@
                         <label for="value">Amount</label><input type="text" placeholder="$ 0,00" inputmode="numeric" pattern="\d*" name="value" id="value" onkeyup="{limpiarNumero(this)}"/>
                     </div>
                     <div>
-                        <label for="reason">Reason</label><select name="reason" id="reason">
+                        <label for="reason">Reason</label>
+                        <select name="reason" id="reason">
                             <option value="alquiler">Alquiler</option>
                             <option value="rental">Rental</option>
                             <option value="lending">Lending</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <button type="submit">Add Service</button>
-                    <span>Already registered? <a href="./login.html">Log In</a></span>
+                    <button type="submit">Deposit</button>
                 </div>
 
             </form>
         </div>
     </main>
-    <script src="../../scripts/user/depositowner.js"></script>
+    <script src="../../scripts/user/depositother.js"></script>
 </body>

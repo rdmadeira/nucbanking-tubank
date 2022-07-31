@@ -1,0 +1,25 @@
+#register-error {
+    height: 20px;
+    width: 100%;
+}
+.success-alert {
+    position: absolute;
+    /* opacity: 0; */
+    top: 50px;
+    width: 50%;
+    padding: 2vw 5vw;
+    text-align: center;
+    animation: appear 1.5s ease;
+    background-color: antiquewhite;
+    left: 25%;
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(-1000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
