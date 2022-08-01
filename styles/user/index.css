@@ -57,7 +57,8 @@ div.content {
 #buttons-ctn {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 40px;
+    width: 100%;
 }
 #buttons-ctn button {
     font-size: 16px;
