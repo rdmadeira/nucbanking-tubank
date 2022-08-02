@@ -37,7 +37,7 @@ function expiryConditions(elem, index) {
     let serviceSpan = document.getElementById(`span${index}`);            
     let serviceCard =  document.getElementById(`service-card${index}`);
     if (today - 86400000 > expiry) {
-        serviceCard.style.outline = '#ab4343 2px solid';
+        serviceCard.style.outline = 'red 3px solid';
         document.getElementById(`date${index}`).style.outline = 'red 2px solid';
         serviceSpan.innerText = 'Overdue date! ';
         serviceSpan.style.visibility = 'visible';

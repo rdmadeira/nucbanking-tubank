@@ -76,6 +76,7 @@ div.content {
 .register-form label {
     display: block;
     font-size: 20px;
+    margin-bottom: 2px;
 }
 .register-form input {
     align-self: center;
