@@ -1,6 +1,8 @@
 #register-error {
     height: 20px;
     width: 100%;
+    color: red;
+    font-weight: 700;
 }
 .success-alert {
     position: absolute;
