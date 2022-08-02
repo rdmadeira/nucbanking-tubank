@@ -45,6 +45,8 @@ nav>ul {
     width: 20%;
     align-self: center;
     margin-bottom: 5vh;
+    min-width: 40px;
+    max-width: 52px;
 }
 nav li {
     width: 100%;
@@ -92,6 +94,8 @@ div#content {
     align-items: center;
     max-width: 450px;
     row-gap: 20px;
+    width: 52%;
+    min-width: 325px;
 }
 #content #logo-ctn {
     width: 80px;
@@ -119,13 +123,17 @@ div#content {
     flex-direction: column;
     row-gap: 10px;
 }
+#register-form__inputs-ctn>div {
+    display: flex;
+    flex-direction: column;
+}
 .register-form input, select {
     background-color: var(--bone) !important;
-}
-.register-form input[name="cbu"] {
     width: 100%;
+    text-align: end;
+    padding: 7px 10px 7px 0px;
 }
-select#reason {
+.register-form select {
     padding: 5px;
 }
 

@@ -6,14 +6,20 @@
 }
 .success-alert {
     position: absolute;
-    /* opacity: 0; */
+    color: var(--white);
     top: 50px;
-    width: 50%;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
     padding: 2vw 5vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    /* margin: auto auto; */
     animation: appear 1.5s ease;
-    background-color: antiquewhite;
-    left: 25%;
+    background-color: var(--space-cadet);
+    /* left: -175px; */
     z-index: 2;
 }
 @keyframes appear {
