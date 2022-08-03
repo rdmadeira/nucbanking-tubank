@@ -33,13 +33,8 @@ function depositOnOwnerCbu(e) {
         if (user.amount >= Number(amount)) {
             user.amount -= Number(amount);
             otherUser.amount += Number(amount);
-            setItemUserAndUsers(user, otherUser)
-            const newDiv = document.createElement('div');
-            const template = document.querySelector('template');
-            contentDiv.insertAdjacentElement("afterbegin", newDiv);
-            newDiv.setAttribute('class', 'success-alert');
-            newDiv.innerHTML = template.innerHTML;
-            document.querySelector('#content #button-ok').addEventListener('click', ()=> location.href = 'depositowner.html');
+            setItemUserAndUsers(user, otherUser);
+            showSuccessfulOperation('Successful Operation!');
         } else {
             registerError.style.visibility = 'visible';
             registerError.appendChild(document.createTextNode(`Insuficient amount available!`));
@@ -51,7 +46,20 @@ function depositOnOwnerCbu(e) {
         cbuInputEl.style.border = 'red 2px solid';
     }
 }
-
+function showSuccessfulOperation(string) {
+    const newDiv = document.createElement('div');
+    const newH4 = document.createElement('h4');
+    const newBtnOk = document.createElement('button');
+    const contentDiv = document.getElementById('content');
+    newH4.innerText = string;
+    newBtnOk.setAttribute('class','button-ok');
+    newBtnOk.innerText = 'OK';
+    newDiv.insertAdjacentElement('afterbegin', newH4);
+    newDiv.insertAdjacentElement("beforeend", newBtnOk);
+    contentDiv.insertAdjacentElement("afterbegin", newDiv);
+    newDiv.setAttribute('class', 'success-alert');
+    document.querySelector('.button-ok').addEventListener('click', ()=> location.href = 'depositother.html');
+}
 function setItemUserAndUsers(u,ot) {
     let userJson = JSON.stringify(u);
     localStorage.setItem('user', userJson);

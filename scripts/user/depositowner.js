@@ -31,15 +31,24 @@ function depositOnOwnerCbu(e) {
     } else {
         user.amount += Number(amount);
         setItemUserAndUsers(user);
-        const newDiv = document.createElement('div');
-        const template = document.querySelector('template');
-        contentDiv.insertAdjacentElement("afterbegin", newDiv);
-        newDiv.setAttribute('class', 'success-alert');
-        newDiv.innerHTML = template.innerHTML;
-        document.querySelector('#content #button-ok').addEventListener('click', ()=> location.href = 'depositowner.html');
+        showSuccessfulOperation('Successful Operation!')
+        
     }
 }
-
+function showSuccessfulOperation(string) {
+    const newDiv = document.createElement('div');
+    const newH4 = document.createElement('h4');
+    const newBtnOk = document.createElement('button');
+    const contentDiv = document.getElementById('content');
+    newH4.innerText = string;
+    newBtnOk.setAttribute('class','button-ok');
+    newBtnOk.innerText = 'OK';
+    newDiv.insertAdjacentElement('afterbegin', newH4);
+    newDiv.insertAdjacentElement("beforeend", newBtnOk);
+    contentDiv.insertAdjacentElement("afterbegin", newDiv);
+    newDiv.setAttribute('class', 'success-alert');
+    document.querySelector('.button-ok').addEventListener('click', ()=> location.href = 'depositowner.html');
+}
 function setItemUserAndUsers(u) {
     let userJson = JSON.stringify(u);
     localStorage.setItem('user', userJson);

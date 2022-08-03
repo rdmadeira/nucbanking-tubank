@@ -16,11 +16,26 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* margin: auto auto; */
+    row-gap: 30px;
     animation: appear 1.5s ease;
     background-color: var(--space-cadet);
     /* left: -175px; */
     z-index: 2;
+}
+.button-ok {
+    width: 20%;
+    background-color: var(--white);
+    color: var(--space-cadet);
+    font-weight: 600;
+    padding: 10px 0;
+    border: none;
+    border-radius: 15px;
+    opacity: 0.8;
+}
+.button-ok:hover {
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.3s all ease-in;
 }
 @keyframes appear {
     0% {

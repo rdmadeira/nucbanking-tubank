@@ -68,17 +68,18 @@ function showSuccessfulOperation(string) {
     const newBtnOk = document.createElement('button');
     const contentDiv = document.getElementById('content');
     newH4.innerText = string;
-    newBtnOk.setAttribute('id','button-ok');
+    newBtnOk.setAttribute('class','button-ok');
     newBtnOk.innerText = 'OK';
     newDiv.insertAdjacentElement('afterbegin', newH4);
     newDiv.insertAdjacentElement("beforeend", newBtnOk);
     contentDiv.insertAdjacentElement("afterbegin", newDiv);
     newDiv.setAttribute('class', 'success-alert');
     saveUserDiv.style.display = 'none';
-    document.querySelector('#button-ok').addEventListener('click', ()=> location.href = 'transfers.html');
+    document.querySelector('.button-ok').addEventListener('click', ()=> location.href = 'transfers.html');
 }
 function cleanSpanBorder(element) {
     searchError.style.visibility = 'hidden';
+    registerError.style.visibility = 'hidden';
     /* if (registerError.firstChild) {
         registerError.removeChild(registerError.firstChild);
     } */
@@ -104,17 +105,30 @@ function setItemUserAndUsers(u, ot) {
 function transferAmount(e) {
     e.preventDefault();
     let user = JSON.parse(localStorage.getItem('user'));
+    let usersArray = JSON.parse(localStorage.getItem('users'));
     let amount = amountInputEl.value;
     let selectedCbu = selectAliasInputEl.value;
-    let accountToTransferObj = user.savedUsers.find(item => item.cbu === selectedCbu);
-    transferForm.style.display = 'none';
-    if (user.amount >= Number(amount)) {
+    let otherUser = usersArray.find(item => item.cbu === selectedCbu);
+    if (amount === ''){
+        amountInputEl.style.border = 'red 2px solid';
+        registerError.innerHTML = 'Please Complete all fields!';
+        registerError.style.visibility = 'visible';
+    }
+    if (!otherUser) {
+        selectAliasInputEl.style.border = 'red 2px solid';
+        registerError.innerHTML = 'Please Complete all fields!';
+        registerError.style.visibility = 'visible';
+    }
+    if (user.amount >= Number(amount) && amount !== '') {
+        transferForm.style.display = 'none';
         user.amount -= Number(amount);
-        accountToTransferObj.amount += Number(amount);
-        setItemUserAndUsers(user, accountToTransferObj);
+        otherUser.amount += Number(amount);
+        setItemUserAndUsers(user, otherUser);
         showSuccessfulOperation('Successful Operation!');
-    } else {
-        alert('iNSUFICIENTE AMOUNT');
+    } else if(user.amount < Number(amount)) {
+        amountInputEl.style.border = 'red 2px solid';
+        registerError.innerHTML = 'Unavailable Amount!';
+        registerError.style.visibility = 'visible';
     }
 
 }
@@ -137,3 +151,5 @@ searchError.appendChild(document.createTextNode('Invalid CBU!'));
 transferForm.addEventListener('submit', e => transferAmount(e));
 searchForm.addEventListener('submit', e => getCbuToSave(e));
 closeBtns.forEach(item=>item.addEventListener('click', e => closeDivs(e)));
+amountInputEl.addEventListener('input', ()=> cleanSpanBorder(amountInputEl));
+selectAliasInputEl.addEventListener('change', ()=> cleanSpanBorder(selectAliasInputEl));

@@ -41,18 +41,6 @@
 .close-btn:hover {
     cursor: pointer;
 }
-/* #save-user-div form::before {
-    content: "X";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: var(--white);
-    padding: 5px 10px;
-    z-index: 3;
-    border-radius: 50%;
-    opacity: 0.8;
-    font-size: 20px;
-} */
 #search-user-div input, #save-user-div input{
     padding: 7px;
     border: 1px solid var(--salmon);
@@ -93,13 +81,22 @@
     /* left: -175px; */
     z-index: 2;
 }
-.success-alert button {
+.button-ok {
     width: 20%;
     background-color: var(--white);
     color: var(--space-cadet);
     font-weight: 600;
     padding: 10px 0;
+    border: none;
+    border-radius: 15px;
+    opacity: 0.8;
 }
+.button-ok:hover {
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.3s all ease-in;
+}
+
 @keyframes appear {
     0% {
         opacity: 0;

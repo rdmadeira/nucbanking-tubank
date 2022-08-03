@@ -86,10 +86,12 @@ function showTransfers() {
 }
 function logoutUser() {
     user = JSON.parse(localStorage.getItem('user'));
-    const userIndex = usersArray.findIndex(item=>item.username === user.username && item.cbu === user.cbu);
-        if (userIndex !== -1) {
-            usersArray[userIndex] = user;
-        }
+    if (user) {
+        const userIndex = usersArray.findIndex(item=>item.username === user.username && item.cbu === user.cbu);
+            if (userIndex !== -1) {
+                usersArray[userIndex] = user;
+            }
+    }
     let usersJson = JSON.stringify(usersArray);    
     localStorage.setItem('users', usersJson);
     localStorage.removeItem('user');
