@@ -15,7 +15,7 @@ const saveUserDiv = document.getElementById('save-user-div');
 const ownerNameP = document.getElementById('cbu-owner-name');
 const registerError = document.getElementById('register-error');
 const searchError = document.getElementById('search-error');
-
+const closeBtns = document.querySelectorAll('.close-btn');
 
 function limpiarNumero(e) {
     /* El evento "change" sólo saltará si son diferentes */
@@ -37,7 +37,7 @@ function getCbuToSave(e) {
         newSavedUser.lastname = findedUser.lastname;
         goToSaveAlias(newSavedUser);
     } else if(savedUsers.find(item=>item.cbu === cbuToValid)) {
-        searchCbu.style.border = 'red 2px solid';
+        searchCbu.style.border = '#b70000 2px solid';
         searchError.innerHTML = 'CBU already saved!';
         searchError.style.visibility = 'visible';
         
@@ -49,7 +49,7 @@ function getCbuToSave(e) {
     function goToSaveAlias(newSavedUser) {
         location.href = '#save-user-div';
         saveCbuInputEl.setAttribute('value', newSavedUser.cbu);
-        ownerNameP.innerHTML= `Owner's Name: ${newSavedUser.name} ${newSavedUser.lastname}`;
+        ownerNameP.innerHTML= `${newSavedUser.name} ${newSavedUser.lastname}`;
         saveForm.addEventListener('submit', (e)=> saveNewAlias(e));
     }
     function saveNewAlias(e) {
@@ -118,6 +118,9 @@ function transferAmount(e) {
     }
 
 }
+function closeDivs() {
+    location.href = './transfers.html';
+}
 
 savedUsers.forEach(item => {
     let newOption = document.createElement('option');
@@ -133,3 +136,4 @@ searchError.style.visibility = 'hidden';
 searchError.appendChild(document.createTextNode('Invalid CBU!'));
 transferForm.addEventListener('submit', e => transferAmount(e));
 searchForm.addEventListener('submit', e => getCbuToSave(e));
+closeBtns.forEach(item=>item.addEventListener('click', e => closeDivs(e)));

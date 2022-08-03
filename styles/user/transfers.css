@@ -7,21 +7,98 @@
     height: 80vh;
     justify-content: center;
     align-items: center;
+    background-color: rgb(233 224 208 / 84%);
+    z-index: 1;
+    border-radius: 30px;
+    width: 0%;
+    height: 0%;
 }
 #search-user-div:target, #save-user-div:target {
     display: flex;
+    width: 100%;
+    height: 100%;
+}
+#search-user-div form, #save-user-div form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px;
+    row-gap: 5px;
+    color: var(--space-cadet);
+}
+.close-btn {
+    content: "X";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--white);
+    padding: 5px 10px;
+    z-index: 3;
+    border-radius: 50%;
+    opacity: 0.8;
+    font-size: 20px;
+}
+.close-btn:hover {
+    cursor: pointer;
+}
+/* #save-user-div form::before {
+    content: "X";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--white);
+    padding: 5px 10px;
+    z-index: 3;
+    border-radius: 50%;
+    opacity: 0.8;
+    font-size: 20px;
+} */
+#search-user-div input, #save-user-div input{
+    padding: 7px;
+    border: 1px solid var(--salmon);
+}
+#search-user-div button, #save-user-div button {
+    font-size: 15px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    background-color: var(--space-cadet);
+    color: var(--maximum-yellow);
+    margin-top: 20px;
+    border: none;
+}
+#cbu-owner-name {
+    font-size: 24px;
+    margin: 30px 0;
+    font-weight: 600;
+}
+#search-error {
+    color: #b70000;
+    font-weight: 600;
 }
 .success-alert {
     position: absolute;
-    /* opacity: 0; */
+    color: var(--white);
     top: 50px;
-    width: 50%;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
     padding: 2vw 5vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    row-gap: 30px;
     animation: appear 1.5s ease;
-    background-color: antiquewhite;
-    left: 25%;
+    background-color: var(--space-cadet);
+    /* left: -175px; */
     z-index: 2;
+}
+.success-alert button {
+    width: 20%;
+    background-color: var(--white);
+    color: var(--space-cadet);
+    font-weight: 600;
+    padding: 10px 0;
 }
 @keyframes appear {
     0% {
