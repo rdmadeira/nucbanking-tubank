@@ -5,10 +5,18 @@
 --sky-blue-crayola: rgba(83, 214, 246, 1);
 --maximum-yellow: rgba(250, 251, 48, 1);
 --acid-green: rgba(193, 194, 41, 1);
---salmon: rgba(245, 123, 112, 1);
 --bone: rgba(233, 224, 208,1);
---background-logo: rgba(250 251 48 / 44%);
 --white: rgba(255, 255, 255, 1);
+/* CSS HEX */
+--lemon-yellow-crayola: #F5F597ff;
+--icterine: #EDEB6Cff;
+--antique-bronze: #6B5F11ff;
+--satin-sheen-gold: #C4A040ff;
+--khaki-x-11-light-khaki: #E9E18Aff;
+--canva-1: #e4dd8d;
+--canva-2: #ba9c49;
+--canva-3: #efed6d;
+--canva-4: #3d3e69;
 }
 
 * {
@@ -75,14 +83,14 @@ div.content {
 }
 .register-form label {
     display: block;
-    font-size: max(2.5vw,17px);
+    font-size: min(max(2.5vw,17px),22px);
     margin-bottom: 2px;
 }
 .register-form input {
     align-self: center;
     padding: 5px 7px;
-    background-color: var(--background-logo);
-    border: solid 1px var(--salmon);
+    background-color: var(--white);
+    border: solid 1px var(--acid-green);
     border-radius: 5px;
 }
 .register-form button {
