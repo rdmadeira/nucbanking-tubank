@@ -123,7 +123,7 @@ if(window.matchMedia('(max-width:780px)').matches) {
 }
 submenuLisEl.forEach(item => {
     item.addEventListener('click', () => menuUlEl.removeAttribute('style'));
-})
+});
 checkingEl.addEventListener('click', ()=> showChecking());
 balanceEl.addEventListener('click', ()=> showBalance());
 cbuEl.addEventListener('click', ()=> showCBU());

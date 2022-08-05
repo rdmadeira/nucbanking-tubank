@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
 :root {
     /* CSS HSL */
 --space-cadet: rgba(27, 42, 95, 1);
@@ -17,6 +18,8 @@
 --canva-2: #ba9c49;
 --canva-3: #efed6d;
 --canva-4: #3d3e69;
+/* Fonts */
+--mouse-memoirs: 'Mouse Memoirs', sans-serif;
 }
 
 * {
