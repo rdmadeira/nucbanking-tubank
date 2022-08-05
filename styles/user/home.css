@@ -18,8 +18,8 @@ aside {
     justify-content: start;
     align-items: flex-start;
     width: 25%;
-    border-right: double black 2px;
-    padding: 30px 0;
+    /* border-right: double black 2px; */
+    padding: 10px 0;
     background: var(--lemon-yellow-crayola);
 }
 main {
@@ -49,7 +49,7 @@ nav>ul {
 .logo-ctn {
     width: 20%;
     align-self: center;
-    margin-bottom: 5vh;
+    margin-bottom: 15px;
     min-width: 40px;
     max-width: 52px;
 }
@@ -58,7 +58,7 @@ nav li {
     padding: 1vw 2vw;
     /* background: var(--ultramarine-blue); */
     color: var(--maximum-yellow);
-    font-size: min(2vw,20px);
+    font-size: min(2vw,16px);
     border-bottom: 10px solid var(--acid-green);
 }
 .dark-blue {
@@ -73,13 +73,21 @@ nav li {
 .canva-2 {
     background-color: var(--canva-2);
 }
+.bone-font {
+    color: var(--bone);
+    border: var(--bone) 2px solid !important;
+}
+.canva-4-font {
+    font: var(--canva-4);
+        border: 2px solid var(--canva-4);
+}
 #logout {
     margin-top: 3vw;
     background-color: var(--space-cadet);
 }
 #logo-2-ctn {
     text-align: center;
-    margin-top: 35px;
+    margin-top: 15px;
 }
 nav li:hover {
     cursor: pointer;
@@ -99,7 +107,7 @@ nav li:hover {
     margin: 0;
 }
 #content-main {
-    color: var(--ultramarine-blue);
+    /* color: var(--ultramarine-blue); */
     width: 100%;
     row-gap: 50px;
     min-height: 100vh;
@@ -111,7 +119,7 @@ div#content {
     padding: 50px 20px 50px;
     background: #e9e0d000;
     border-radius: 30px;
-    border: 2px solid var(--sky-blue-crayola);
+    /* border: 2px solid var(--sky-blue-crayola); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -220,10 +228,13 @@ option {
     nav>ul {
         position: absolute;
         width: 100%;
+        transform: scaleX(0);
         font-size: 5.2vw;
         z-index: 2;
         background: #8080806b;
         height: 100vh;
+        transition: transform 0.4s ease;
+        transform-origin: left;
     }
     #logout {
         margin-top: 0;
@@ -235,16 +246,28 @@ option {
         padding: 30px 0 0;
         min-width: 70px;
     }
+    #logo-2-ctn {
+        position: absolute;
+        top: 20px;
+        left: -55px;
+        width: 42%;
+    }
     nav li {
         padding: 20px;
+        font-size: max(4.5vw,22px);
+    }
+    #content-main {
+        justify-content: start;
+        align-items: center;
+        padding: 15vw 0;
     }
     div#content {
         min-width: unset;
-        width: 65%;
+        width: 90%;
         margin-top: 0vw;
     }
     #content-container {
-        width: 90%;
+        width: 100%;
     }
     .register-form {
         width: 90%;
@@ -260,16 +283,16 @@ option {
             opacity: 0;
           }
           100% {
-            -webkit-transform: scaleX(1) translateX(-490px);
-                    transform: scaleX(1) translateX(-490px);
+            -webkit-transform: scaleX(1) translateX(-67vw);
+                    transform: scaleX(1) translateX(-67vw);
                     transform-origin: left;
             opacity: 1;
           }
     }
     @keyframes slide-out-left {
         0% {
-          -webkit-transform: translateX(-490px);
-                  transform: translateX(-490px);
+          -webkit-transform: translateX(-67vw);
+                  transform: translateX(-67vw);
           opacity: 1;
         }
         100% {

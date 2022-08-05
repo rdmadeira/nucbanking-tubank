@@ -17,6 +17,7 @@ const addServiceLi = servicesUlEl.children[0];
 const delServiceLi = servicesUlEl.children[1];
 const payServiceLi =  servicesUlEl.children[2];
 const myPaymentsLi =  servicesUlEl.children[3];
+const submenuLisEl = document.querySelectorAll('nav#menu>ul>li>ul>li');
 
 function showChecking() {
     if (!checkingUlEl.classList.contains('slide-in-left') && !checkingUlEl.classList.contains('slide-out-left')) {
@@ -83,6 +84,9 @@ function showDepositOther() {
 /* ******************************************************************************************** */
 function showTransfers() {
     homeIframeEl.setAttribute('src', './transfers.html');
+    if (menuUlEl.hasAttribute('style')) {
+        menuUlEl.removeAttribute('style');
+    }
 }
 function logoutUser() {
     user = JSON.parse(localStorage.getItem('user'));
@@ -107,7 +111,19 @@ function slideOutAllUl() {
     });
 }
 
-
+const menuUlEl = document.querySelector('nav#menu>ul');
+if(window.matchMedia('(max-width:780px)').matches) {
+    document.getElementById('logo-2-ctn').addEventListener('click', ()=> {
+        if (!menuUlEl.hasAttribute('style')) {
+            menuUlEl.style.transform = 'scaleX(1)';
+        } else {
+            menuUlEl.removeAttribute('style');
+        }
+    })
+}
+submenuLisEl.forEach(item => {
+    item.addEventListener('click', () => menuUlEl.removeAttribute('style'));
+})
 checkingEl.addEventListener('click', ()=> showChecking());
 balanceEl.addEventListener('click', ()=> showBalance());
 cbuEl.addEventListener('click', ()=> showCBU());
