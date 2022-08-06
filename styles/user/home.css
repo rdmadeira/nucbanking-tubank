@@ -173,7 +173,6 @@ div#content {
     width: 80px;
     position: absolute;
     top: -44px;
-    
     z-index: 2;
     border-radius: 50%;
 }
@@ -297,39 +296,7 @@ option {
         padding: 20px;
         font-size: max(4.5vw,22px);
     }
-    #content-main {
-        justify-content: start;
-        align-items: center;
-        padding: 15vw 0;
-    }
-    div#content {
-        min-width: unset;
-        max-width: unset;
-        width: 90%;
-        margin-top: 0vw;
-    }
-    #content-container {
-        width: 100%;
-    }
-    #welcome-content-main {
-        justify-content: flex-start;
-    }
-    #content-ctn {
-        flex-direction: column;
-    }
-    #content-text {
-        width: 100%;
-        order: 2;
-    }
-    #image-ctn {
-        width: 100%;
-    }
-    .register-form {
-        width: 90%;
-    }
-    #content h1 {
-        font-size: 4.5vw;
-    }
+    
     @keyframes slide-in-left {
         0% {
             -webkit-transform: scaleX(0) translateX(-500px);
@@ -356,4 +323,41 @@ option {
           opacity: 0;
         }
       }
+      #content-container {
+          width: 100%;
+      }
   }
+
+  @media (max-width:585px) and (orientation: portrait){
+    
+    #content-main {
+        justify-content: start;
+        align-items: center;
+        padding: 15vw 0;
+    }
+    div#content {
+        min-width: unset;
+        max-width: unset;
+        width: 90%;
+        margin-top: 0vw;
+    }
+    #welcome-content-main {
+        justify-content: flex-start;
+    }
+    #content-ctn {
+        flex-direction: column;
+    }
+    #content-text {
+        width: 100%;
+        order: 2;
+    }
+    #image-ctn {
+        width: 100%;
+    }
+    .register-form {
+        width: 90%;
+    }
+    #content h1 {
+        font-size: 4.5vw;
+    }
+}
