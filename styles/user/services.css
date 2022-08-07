@@ -78,12 +78,6 @@
     opacity: 1;
     transition: 0.3s all ease-in;
 }
-#content-main {
-    width: 100%;
-    justify-content: flex-start;
-    padding: 15vw 0;
-}
-
 @keyframes appear {
     0% {
         opacity: 0;
@@ -92,5 +86,21 @@
     100% {
         opacity: 1;
         transform: translateY(0px);
+    }
+}
+@media (max-width:780px)  {
+    .service-card {
+        width: 40%;
+    }
+    .service-card h3 {
+        font-size: max(4.5vw,32px);
+    }
+    .service-card p {
+        font-size: max(3.5vw,28px);
+    }
+}
+@media (max-width: 585px) {
+    .service-card {
+        width: 90%;
     }
 }
