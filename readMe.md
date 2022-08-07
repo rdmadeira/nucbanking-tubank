@@ -1,3 +1,4 @@
+![Captured image of index](./designs/CapturaIndex.PNG);
 🥶Desafío de invierno by Nucba!☃️ - Tubank: Plataforma de Homebanking
 
 Se trata de un desafío de Diseño Web y Javascript resuelto de forma individual.🧑‍💻
