@@ -47,6 +47,8 @@ nav>ul {
     align-items: flex-start;
     row-gap: 3vh;
     margin: 1vh 0 0 0;
+    position: relative;
+    z-index: 1;
 }
 .logo-ctn {
     width: 20%;
@@ -154,6 +156,14 @@ h1#welcome {
     height: fit-content;
     justify-content: center;
     flex-grow: 2;
+}
+#content-main-payments {
+    row-gap: 50px;
+    min-height: 100vh;
+    height: fit-content;
+    justify-content: center;
+    flex-grow: 2;
+    position: relative;
 }
 div#content {
     position: relative;

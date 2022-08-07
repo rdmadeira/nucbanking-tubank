@@ -34,7 +34,7 @@ function addService(e) {
         registerError.appendChild(document.createTextNode(`Please, fill out all fields`));
         return registerError.style.visibility = 'visible'; 
     }
-    else if (userServices.some(item => item.service === service) === true) {
+    else if (userServices.some(item => item.service === service && item.date === date && item.value === valueAmount) === true) {
         registerError.appendChild(document.createTextNode(`Service Already Exists!`));
         return registerError.style.visibility = 'visible';
     }
