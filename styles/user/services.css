@@ -4,6 +4,7 @@
     width: 95%;
     column-gap: 5vw;
     row-gap: 4vh;
+    justify-content: center;
 }
 .service-card {
     position: relative;
@@ -77,6 +78,12 @@
     opacity: 1;
     transition: 0.3s all ease-in;
 }
+#content-main {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 15vw 0;
+}
+
 @keyframes appear {
     0% {
         opacity: 0;
