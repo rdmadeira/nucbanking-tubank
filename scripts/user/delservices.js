@@ -1,4 +1,4 @@
-const user = JSON.parse(localStorage.getItem('user'));
+user = JSON.parse(localStorage.getItem('user'));
 let userServices = user.services;
 const paymentsCtn = document.getElementById('payments-ctn');
 userServices.forEach((elem,i) => {
@@ -35,5 +35,5 @@ function deleteService(elem, index) {
     userServices.splice(index,1);
     console.log(user);
     setItemUserAndUsers(user);
-    location.href = './delservices.html';
+    location.href = 'delservices.html';
 }

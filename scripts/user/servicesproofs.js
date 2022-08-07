@@ -1,4 +1,4 @@
-const user = JSON.parse(localStorage.getItem('user'));
+user = JSON.parse(localStorage.getItem('user'));
 let userServices = user.services;
 const paymentsCtn = document.getElementById('payments-ctn');
 userServices.forEach((elem,i) => {

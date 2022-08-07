@@ -9,61 +9,101 @@
     <title>Tubank - Your Safe Web Wallet</title>
 </head>
 <body>
-    <main id="content-main" class="canva-2">
-        <div id="content" class="canva-4-font"> 
-            <div id="logo-ctn">
-                <img src="../../assets/logo-money.png" alt="logo-of-money-safe" width="100%"/>
+    <div id="container">
+        <aside>
+            <div class="logo-ctn">
+                <img src="../../assets/logo-tubank.png" alt="logo-of-Tubank" srcset="" width="100%"/>
             </div>
-            <h1>Transfers</h1>
-            <form action="" method="post" class="register-form" id="transfer-form">
-                <div id="register-form__inputs-ctn">
-                    <div id="register-error"></div>
-                    <div>
-                        <label for="cbu">From Account:</label><input type="text" name="cbu" id="cbu" readonly/>
-                    </div>
-                    <div>
-                        <label for="amount">Amount:</label><input type="text" placeholder="$ 0,00" inputmode="numeric" pattern="\d*" name="amount" id="amount" onkeyup="{limpiarNumero(this)}"/>
-                    </div>
-                    <div>
-                        <label for="saved-users-select">Transfer to:</label>
-                        <select name="saved-users" id="saved-users-select">
-                            <option value="" selected disabled hidden>Choose Alias</option>
-                        </select>
-                        <a href="#search-user-div">Add a new account</a>
-                    </div>
-                    <div>
-                        <label for="reason">Reason</label>
-                        <select name="reason" id="reason">
-                            <option value="alquiler">Alquiler</option>
-                            <option value="rental">Rental</option>
-                            <option value="lending">Lending</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit">Transfer</button>
+            <nav id="menu">
+                <ul>
+                    <li id="checking-li" class="dark-blue">
+                        Checking account
+                        <ul id="checking-ul" class="displayNone">
+                            <li id="balance-amount" class="dark-blue">Balance Amount</li>
+                            <li id="cbu" class="dark-blue">CBU Number</li>
+                        </ul>
+                    </li>
+                    <li id="services-li" class="marine-blue">
+                        Services
+                        <ul id="services-ul" class="displayNone">
+                            <li class="marine-blue">Add Service</li>
+                            <li class="marine-blue">Delete Service</li>
+                            <li class="marine-blue">Pay Services</li>
+                            <li class="marine-blue">My Payments</li>
+                        </ul>
+                    </li>
+                    <li id="deposits-li" class="antique-bronze">
+                        Deposits
+                        <ul id="deposits-ul" class="displayNone">
+                            <li class="antique-bronze">Own Account</li>
+                            <li class="antique-bronze">Another Account</li>
+                        </ul>
+                    </li>
+                    <li id="transfers-li" class="canva-2">Transfers</li>
+                    <li id="logout"><<<< Log Out</li>
+                </ul>
+            </nav>
+            <div id="logo-2-ctn">
+                <img src="../../assets/1.png" alt="" width="25%">
+            </div>
+        </aside>
+        <main id="content-main" class="canva-2">
+            <div id="content" class="canva-4-font"> 
+                <div id="logo-ctn">
+                    <img src="../../assets/logo-money.png" alt="logo-of-money-safe" width="100%"/>
                 </div>
+                <h1>Transfers</h1>
+                <form action="" method="post" class="register-form" id="transfer-form">
+                    <div id="register-form__inputs-ctn">
+                        <div id="register-error"></div>
+                        <div>
+                            <label for="cbu-input">From Account:</label><input type="text" name="cbu" id="cbu-input" readonly/>
+                        </div>
+                        <div>
+                            <label for="amount">Amount:</label><input type="text" placeholder="$ 0,00" inputmode="numeric" pattern="\d*" name="amount" id="amount" onkeyup="{limpiarNumero(this)}"/>
+                        </div>
+                        <div>
+                            <label for="saved-users-select">Transfer to:</label>
+                            <select name="saved-users" id="saved-users-select">
+                                <option value="" selected disabled hidden>Choose Alias</option>
+                            </select>
+                            <a href="#search-user-div">Add a new account</a>
+                        </div>
+                        <div>
+                            <label for="reason">Reason</label>
+                            <select name="reason" id="reason">
+                                <option value="alquiler">Alquiler</option>
+                                <option value="rental">Rental</option>
+                                <option value="lending">Lending</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit">Transfer</button>
+                    </div>
 
-            </form>
-            <div id="search-user-div">
-                <span class="close-btn">X</span>
-                <form action="" method="post" id="search-user">
-                    <div id="search-error"></div>
-                    <label for="cbu-search">CBU:</label>
-                    <input type="text" name="cbu-search" id="cbu-search"/>
-                    <button type="submit">Search</button>
                 </form>
+                <div id="search-user-div">
+                    <span class="close-btn">X</span>
+                    <form action="" method="post" id="search-user">
+                        <div id="search-error"></div>
+                        <label for="cbu-search">CBU:</label>
+                        <input type="text" name="cbu-search" id="cbu-search"/>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div id="save-user-div">
+                    <span class="close-btn">X</span>
+                    <form action="" method="post" id="save-user">
+                        <label for="cbu-save-input">CBU</label><input type="text" name="cbu-save" id="cbu-save-input" readonly/>
+                        <p id="cbu-owner-name"></p>
+                        <label for="alias-save">Add an Alias</label><input type="text" name="alias-save" id="save-alias"/>
+                        <button type="submit">Save CBU</button>
+                    </form>
+                </div>
             </div>
-            <div id="save-user-div">
-                <span class="close-btn">X</span>
-                <form action="" method="post" id="save-user">
-                    <label for="cbu-save-input">CBU</label><input type="text" name="cbu-save" id="cbu-save-input" readonly/>
-                    <p id="cbu-owner-name"></p>
-                    <label for="alias-save">Add an Alias</label><input type="text" name="alias-save" id="save-alias"/>
-                    <button type="submit">Save CBU</button>
-                </form>
-            </div>
-        </div>
-    </main>
+        </main>
+    </div>
+    <script src="../../scripts/user/home.js"></script>
     <script src="../../scripts/user/transfers.js"></script>
 </body>

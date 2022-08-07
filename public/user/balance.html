@@ -8,17 +8,57 @@
     <title>Tubank - Your Safe Web Wallet</title>
 </head>
 <body>
-    <main id="content-main" class="dark-blue">
-        <div id="content" class="bone-font">
-            <div id="logo-ctn">
-                <img src="../../assets/logo-money.png" alt="logo-of-money-safe" width="100%">
+    <div id="container">
+        <aside>
+            <div class="logo-ctn">
+                <img src="../../assets/logo-tubank.png" alt="logo-of-Tubank" srcset="" width="100%"/>
             </div>
-            <div class="results-div">
-                <h2></h2>
-                <p></p>
+            <nav id="menu">
+                <ul>
+                    <li id="checking-li" class="dark-blue">
+                        Checking account
+                        <ul id="checking-ul" class="displayNone">
+                            <li id="balance-amount" class="dark-blue">Balance Amount</li>
+                            <li id="cbu" class="dark-blue">CBU Number</li>
+                        </ul>
+                    </li>
+                    <li id="services-li" class="marine-blue">
+                        Services
+                        <ul id="services-ul" class="displayNone">
+                            <li class="marine-blue">Add Service</li>
+                            <li class="marine-blue">Delete Service</li>
+                            <li class="marine-blue">Pay Services</li>
+                            <li class="marine-blue">My Payments</li>
+                        </ul>
+                    </li>
+                    <li id="deposits-li" class="antique-bronze">
+                        Deposits
+                        <ul id="deposits-ul" class="displayNone">
+                            <li class="antique-bronze">Own Account</li>
+                            <li class="antique-bronze">Another Account</li>
+                        </ul>
+                    </li>
+                    <li id="transfers-li" class="canva-2">Transfers</li>
+                    <li id="logout"><<<< Log Out</li>
+                </ul>
+            </nav>
+            <div id="logo-2-ctn">
+                <img src="../../assets/1.png" alt="" width="25%">
             </div>
-        </div>
-    </main>
-    <script src="../../scripts/user/balance.js"></script>
+        </aside>
+        <main id="content-main" class="dark-blue">
+            <div id="content" class="bone-font">
+                <div id="logo-ctn">
+                    <img src="../../assets/logo-money.png" alt="logo-of-money-safe" width="100%">
+                </div>
+                <div class="results-div">
+                    <h2></h2>
+                    <p></p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../scripts/user/home.js" type="text/javascript"></script>
+    <script src="../../scripts/user/balance.js" type="text/javascript"></script>
 </body>
 </html>

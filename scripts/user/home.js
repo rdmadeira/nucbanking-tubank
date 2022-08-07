@@ -1,4 +1,4 @@
-let user = JSON.parse(localStorage.getItem('user'));
+user = JSON.parse(localStorage.getItem('user'));
 let usersArray = JSON.parse(localStorage.getItem('users'));
 const checkingEl = document.getElementById('checking-li');
 const servicesEl = document.getElementById('services-li');
@@ -11,7 +11,7 @@ const logOutEl =  document.getElementById('logout');
 const checkingUlEl = document.getElementById('checking-ul');
 const balanceEl = document.getElementById('balance-amount');
 const cbuEl = document.getElementById('cbu');
-const homeIframeEl = document.getElementById('content-iframe');
+const contentMain = document.getElementById('content-main');
 const servicesUlEl = document.getElementById('services-ul');
 const addServiceLi = servicesUlEl.children[0];
 const delServiceLi = servicesUlEl.children[1];
@@ -30,10 +30,10 @@ function showChecking() {
     } 
 }
 function showBalance() {
-    homeIframeEl.setAttribute('src', './balance.html');
+    location.href = 'balance.html';
 }
 function showCBU() {
-    homeIframeEl.setAttribute('src', './cbu.html');
+    location.href = 'cbu.html';
 }
 
 /* ******************************************************************************************** */
@@ -50,16 +50,16 @@ function showServices() {
     }
 }
 function showAddService() {
-    homeIframeEl.setAttribute('src', './addservice.html')
+    location.href = 'addservice.html';
 }
 function showPayServices() {
-    homeIframeEl.setAttribute('src', './payservices.html')
+    location.href = 'payservices.html';
 }
 function showDelServices() {
-    homeIframeEl.setAttribute('src', './delservices.html')
+    location.href = 'delservices.html';
 }
 function showMyPayments() {
-    homeIframeEl.setAttribute('src', './servicesproofs.html');
+    location.href = 'servicesproofs.html';
 }
 
 /* ******************************************************************************************** */
@@ -76,14 +76,14 @@ function showDeposits() {
     }
 }
 function showDepositOwner() {
-    homeIframeEl.setAttribute('src', './depositowner.html');
+    location.href = 'depositowner.html';
 }
 function showDepositOther() {
-    homeIframeEl.setAttribute('src', './depositother.html');
+    location.href = 'depositother.html';
 }
 /* ******************************************************************************************** */
 function showTransfers() {
-    homeIframeEl.setAttribute('src', './transfers.html');
+    location.href = 'transfers.html';
     if (menuUlEl.hasAttribute('style')) {
         menuUlEl.removeAttribute('style');
     }
@@ -116,6 +116,7 @@ function windowChanges() {
         document.getElementById('logo-2-ctn').addEventListener('click', ()=> {
             if (!menuUlEl.hasAttribute('style')) {
                 menuUlEl.style.transform = 'scaleX(1)';
+                menuUlEl.style.visibility = 'visible'
             } else {
                 menuUlEl.removeAttribute('style');
             }
@@ -144,4 +145,4 @@ delServiceLi.addEventListener('click', ()=> showDelServices())
 payServiceLi.addEventListener('click', ()=> showPayServices())
 myPaymentsLi.addEventListener('click', ()=> showMyPayments())
 logOutEl.addEventListener('click', ()=> logoutUser());
-homeIframeEl.addEventListener('mouseover', () => slideOutAllUl());
+contentMain.addEventListener('mouseover', () => slideOutAllUl());
