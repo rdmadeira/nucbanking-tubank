@@ -145,4 +145,6 @@ delServiceLi.addEventListener('click', ()=> showDelServices())
 payServiceLi.addEventListener('click', ()=> showPayServices())
 myPaymentsLi.addEventListener('click', ()=> showMyPayments())
 logOutEl.addEventListener('click', ()=> logoutUser());
-contentMain.addEventListener('mouseover', () => slideOutAllUl());
+if (contentMain) {
+    contentMain.addEventListener('mouseover', () => slideOutAllUl());
+}
