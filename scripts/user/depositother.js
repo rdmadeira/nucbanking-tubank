@@ -1,11 +1,12 @@
-let user = JSON.parse(localStorage.getItem('user'));
-let usersArray = JSON.parse(localStorage.getItem('users'));
-const cbuInputEl = document.getElementById('cbu');
+user = JSON.parse(localStorage.getItem('user'));
+usersArray = JSON.parse(localStorage.getItem('users'));
+const cbuInputEl = document.getElementById('cbu-input');
 const valueInputEl = document.getElementById('value');
 const depoForm = document.getElementById('depo-form');
 //const otherForm =  document.getElementById('other-form');
 const registerError = document.getElementById('register-error');
 const contentDiv = document.getElementById('content');
+const buttonSubmit = document.querySelector('button[type="submit"]');
 
 function limpiarNumero(e) {
     /* El evento "change" sólo saltará si son diferentes */
@@ -20,14 +21,15 @@ function depositOnOwnerCbu(e) {
     let cbu = cbuInputEl.value;
     let amount = valueInputEl.value;
     let otherUser = usersArray.find(item=>item.cbu === cbu);
+    console.log(usersArray);
     if (amount==='' || cbu==='') {
         registerError.style.visibility = 'visible';
         registerError.appendChild(document.createTextNode(`Please, fill amount field!`));
         if(amount==='') {
-            valueInputEl.style.border = 'red 2px solid';
+            valueInputEl.style.outline = 'red 3px solid';
         }
         if (cbu==='') {
-            cbuInputEl.style.border = 'red 2px solid';
+            cbuInputEl.style.outline = 'red 3px solid';
         }
     } else if (otherUser) {
         if (user.amount >= Number(amount)) {
@@ -35,15 +37,16 @@ function depositOnOwnerCbu(e) {
             otherUser.amount += Number(amount);
             setItemUserAndUsers(user, otherUser);
             showSuccessfulOperation('Successful Operation!');
+            buttonSubmit.disabled = true;
         } else {
             registerError.style.visibility = 'visible';
             registerError.appendChild(document.createTextNode(`Insuficient amount available!`));
-            valueInputEl.style.border = 'red 2px solid';
+            valueInputEl.style.outline = 'red 3px solid';
         }
     } else {
         registerError.style.visibility = 'visible';
         registerError.appendChild(document.createTextNode(`Invalid CBU!`));
-        cbuInputEl.style.border = 'red 2px solid';
+        cbuInputEl.style.outline = 'red 3px solid';
     }
 }
 function showSuccessfulOperation(string) {

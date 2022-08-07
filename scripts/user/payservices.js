@@ -1,4 +1,4 @@
-const user = JSON.parse(localStorage.getItem('user'));
+user = JSON.parse(localStorage.getItem('user'));
 let userServices = user.services;
 let userAmount = user.amount;
 const paymentsCtn = document.getElementById('payments-ctn');
@@ -64,10 +64,10 @@ function payService(elem, index) {
         user.services[index].paid = true;
         user.services[index]['paymentdate'] = `${new Date(Date.now()).getFullYear()}-${new Date(Date.now()).getMonth()+1}-${new Date(Date.now()).getDate()}`;
         setItemUserAndUsers(user);
-        location.href = './payservices.html';
+        location.href = 'payservices.html';
         
     } else {
-        serviceCard.style.border = 'red 2px solid';
+        serviceCard.style.outline = 'red 3px solid';
         serviceSpan.innerText = 'No amount available!';
         serviceSpan.style.visibility = 'visible';
         setTimeout( ()=> {

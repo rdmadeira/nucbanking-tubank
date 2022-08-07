@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/user/home.css">
     <!-- <link rel="stylesheet" href="../../styles/user/home-mediaqueries.css" media="screen and (max-width: 780px)"> -->
+    <script type="text/javascript" src="../../scripts/user/welcome.js"></script>
     <title>Tubank - Home</title>
 </head>
 <body>
@@ -47,9 +48,19 @@
             <img src="../../assets/1.png" alt="" width="25%">
         </div>
     </aside>
-    <main id="content-container">
-        <iframe id="content-iframe" src="./welcome.html" scrolling="no">
-        </iframe>
+    <main id="welcome-content-main">
+        <div id="content-ctn">
+            <div id="content-text">
+                <h1 id="welcome"></h1>
+                <div class="welcome-logo-ctn">
+                    <img src="../../assets/logo-tubank.png" alt="" srcset="" width="30%">
+                    <p id="welcome-p"></p>
+                </div>
+            </div>
+            <div id="image-ctn">
+                <img src="../../assets/welcome-image.png" alt="" srcset="" width="100%"/>
+            </div>
+        </div>
     </main>
     </div>
     <script src="../../scripts/user/home.js"></script>

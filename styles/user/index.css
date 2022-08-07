@@ -98,6 +98,8 @@ div.content {
 }
 .register-form button {
     font-size: 15px;
+    font-family: var(--mouse-memoirs);
+    letter-spacing: 2.5px;
     padding: 10px 10px;
     border-radius: 5px;
     background-color: var(--space-cadet);

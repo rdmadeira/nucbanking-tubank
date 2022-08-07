@@ -1,7 +1,7 @@
-let user = JSON.parse(localStorage.getItem('user'));
-let usersArray = JSON.parse(localStorage.getItem('users'));
+user = JSON.parse(localStorage.getItem('user'));
+usersArray = JSON.parse(localStorage.getItem('users'));
 let savedUsers = user.savedUsers;
-const ownerCbuInputEl = document.getElementById('cbu');
+const ownerCbuInputEl = document.getElementById('cbu-input');
 const amountInputEl = document.getElementById('amount');
 const selectAliasInputEl = document.getElementById('saved-users-select');
 const selectUserEl = document.getElementById('saved-users-select');
@@ -16,6 +16,7 @@ const ownerNameP = document.getElementById('cbu-owner-name');
 const registerError = document.getElementById('register-error');
 const searchError = document.getElementById('search-error');
 const closeBtns = document.querySelectorAll('.close-btn');
+const buttonSubmit = document.querySelector('button[type="submit"]');
 
 function limpiarNumero(e) {
     /* El evento "change" sólo saltará si son diferentes */
@@ -110,30 +111,30 @@ function transferAmount(e) {
     let selectedCbu = selectAliasInputEl.value;
     let otherUser = usersArray.find(item => item.cbu === selectedCbu);
     if (amount === ''){
-        amountInputEl.style.border = 'red 2px solid';
+        amountInputEl.style.outline = 'red 3px solid';
         registerError.innerHTML = 'Please Complete all fields!';
         registerError.style.visibility = 'visible';
     }
     if (!otherUser) {
-        selectAliasInputEl.style.border = 'red 2px solid';
+        selectAliasInputEl.style.outline = 'red 3px solid';
         registerError.innerHTML = 'Please Complete all fields!';
         registerError.style.visibility = 'visible';
     }
     if (user.amount >= Number(amount) && amount !== '') {
-        transferForm.style.display = 'none';
         user.amount -= Number(amount);
         otherUser.amount += Number(amount);
         setItemUserAndUsers(user, otherUser);
         showSuccessfulOperation('Successful Operation!');
+        buttonSubmit.disabled = true;
     } else if(user.amount < Number(amount)) {
-        amountInputEl.style.border = 'red 2px solid';
+        amountInputEl.style.outline = 'red 3px solid';
         registerError.innerHTML = 'Unavailable Amount!';
         registerError.style.visibility = 'visible';
     }
 
 }
 function closeDivs() {
-    location.href = './transfers.html';
+    location.href = 'transfers.html';
 }
 
 savedUsers.forEach(item => {

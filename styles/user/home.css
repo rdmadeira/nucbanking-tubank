@@ -10,7 +10,7 @@ ul {
 #container {
     display: flex;
     flex-wrap: wrap;
-    width: 100vw;
+    /* width: 100vw; */
     font-family: var(--mouse-memoirs);
     letter-spacing: 1.5px;
 }
@@ -109,7 +109,7 @@ nav li:hover {
     margin: 0;
 }
 #welcome-content-main {
-    width: 100%;
+    /* width: 100%; */
     height: 100vh;
     background: var(--canva-1);
     font-family: var(--mouse-memoirs);
@@ -148,22 +148,24 @@ h1#welcome {
 }
 #content-main {
     /* color: var(--ultramarine-blue); */
-    width: 100%;
+    /* width: 100%; */
     row-gap: 50px;
     min-height: 100vh;
     height: fit-content;
     justify-content: center;
+    flex-grow: 2;
 }
 div#content {
     position: relative;
     padding: 50px 20px 50px;
     background: #e9e0d000;
     border-radius: 30px;
-    font-family: monospace, 'Courier New', Courier;
+    font-family: var(--mouse-memoirs);
+    letter-spacing: 3.5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
+    /* max-width: 400px; */
     row-gap: 10px;
     width: 52%;
     min-width: 325px;
@@ -268,9 +270,10 @@ option {
     nav>ul {
         position: absolute;
         width: 100%;
+        visibility: hidden;
         transform: scaleX(0);
         font-size: 5.2vw;
-        z-index: 2;
+        z-index: 3;
         background: #8080806b;
         height: 100vh;
         transition: transform 0.4s ease;
@@ -296,7 +299,48 @@ option {
         padding: 20px;
         font-size: max(4.5vw,22px);
     }
-    
+    #content-container {
+        width: 100%;
+    }
+    #content-main {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 15vw 0;
+    }
+    div#content {
+        width: 65%;
+        margin-top: 0vw;
+        min-width: unset;
+        max-width: unset;
+    }
+    #content #logo-ctn {
+        width: 100px;
+        top: -54px;
+    }
+    .register-form {
+        width: 95%;
+    }
+    #register-form__inputs-ctn {
+        row-gap: 30px;
+    }
+    .register-form label {
+        font-size: min(max(5vw,26px),32px);
+    }
+    .register-form input, select {
+        font-size: min(max(3vw,22px),28px);
+    }
+    .register-form button {
+        font-size: 35px;
+    }
+    #register-error {
+        font-size: 26px;
+    }
+    .success-alert {
+        font-size: 5vw;
+    }
+    .button-ok {
+        font-size: 3vw;
+    }
     @keyframes slide-in-left {
         0% {
             -webkit-transform: scaleX(0) translateX(-500px);
@@ -323,23 +367,16 @@ option {
           opacity: 0;
         }
       }
-      #content-container {
-          width: 100%;
-      }
+      
   }
 
-  @media (max-width:585px) and (orientation: portrait){
+  @media (max-width:585px) and (orientation: portrait) {
     
     #content-main {
-        justify-content: start;
-        align-items: center;
-        padding: 15vw 0;
+        padding: 20vw 0;
     }
     div#content {
-        min-width: unset;
-        max-width: unset;
         width: 90%;
-        margin-top: 0vw;
     }
     #welcome-content-main {
         justify-content: flex-start;
