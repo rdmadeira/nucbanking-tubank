@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-![Captured image of index](./designs/CapturaIndex.PNG);
-🥶Desafío de invierno by Nucba!☃️ - Tubank: Plataforma de Homebanking
+# 🥶Desafío de invierno by Nucba!☃️
+![Captured image of index](./designs/CapturaIndex.PNG)
 =======
-<h1>🥶Desafío de invierno by Nucba.☃️ </h1>
->>>>>>> 243103f68e3fe998deb578b9492514d4cf92d648
+## Tubank: Plataforma de Homebanking
 
-<h2>Tubank: Plataforma de Homebanking</h2>
+### Este repositorio se trata de un desafío de Diseño Web y Javascript resuelto de forma individual.🧑‍💻
 
-<h3>Este repositorio se trata de un desafío de Diseño Web y Javascript resuelto de forma individual.🧑‍💻</h3>
-
-<h3>Cuál es el objetivo de este desafío?</h3>
+### Cuál es el objetivo de este desafío?
 <p>👉Realizar una solución a la problemática presentada, con los conocimientos aprendidos hasta la fecha.</p>
 
 <p>👉Herramientas: 
