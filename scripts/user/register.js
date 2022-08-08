@@ -4,36 +4,55 @@ const lastnameInput = form.lastname;
 const userInput = form.username;
 const passwordInput = form.password;
 const registerError = document.getElementById('register-error');
-
-registerError.style.display = 'none';
-
 let usersStorageJSON = localStorage.getItem('users');
 let usersArray = [];
+
 if (usersStorageJSON) {
     usersArray = JSON.parse(usersStorageJSON);
 }
+registerError.style.visibility = 'hidden';
+registerError.innerHTML = 'Processing...';
 function uuidv4() {
     return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
       (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
 }
-
+nameInput.addEventListener('input', ()=> cleanSpanAndBorder(nameInput));
+lastnameInput.addEventListener('input', ()=> cleanSpanAndBorder(lastnameInput));
+userInput.addEventListener('input', ()=> cleanSpanAndBorder(userInput));
+passwordInput.addEventListener('input', ()=> cleanSpanAndBorder(passwordInput));
 form.addEventListener('submit', event => saveUser(event));
 
+function cleanSpanAndBorder(el) {
+    el.removeAttribute('style');
+    registerError.style.visibility = 'hidden';
+}
 function saveUser(e) {
     e.preventDefault();
-    if (registerError.firstChild) {
-        registerError.removeChild(registerError.firstChild);
-        registerError.style.display = 'none';
-    }
+    //if (registerError.firstChild) {
+        // registerError.removeChild(registerError.firstChild);
+    registerError.style.visibility = 'hidden';
+    //}
     const name = nameInput.value;
     const lastname = lastnameInput.value;
     const username =  userInput.value;
     const password = passwordInput.value;
     
     if (name === '' || lastname === '' || username === '' || password === '') {
-        registerError.style.display = 'block';
-        return registerError.appendChild(document.createTextNode(`Please, fill out all fields`));
+        registerError.style.visibility = 'visible';
+        registerError.innerHTML = `Please, fill out all fields`;
+        if (name === '') {
+            nameInput.style.outline = 'red 3px solid';
+        }
+        if (lastname === '') {
+            lastnameInput.style.outline = 'red 3px solid';
+        }
+        if (username === '') {
+            userInput.style.outline = 'red 3px solid';
+        }
+        if (password === '') {
+            passwordInput.style.outline = 'red 3px solid';
+        }
     } else {
         let newUsers = {
             name: name,
@@ -46,8 +65,9 @@ function saveUser(e) {
             savedUsers: [],
         }
         if (usersArray.some(objUser => objUser.username === newUsers.username)) {
-            registerError.style.display = 'block';
-            return registerError.appendChild(document.createTextNode('Username already exists! Choose another one'));
+            registerError.style.visibility = 'visible';
+            userInput.style.outline = 'red 3px solid';
+            return registerError.innerHTML = 'Username already exists! Choose another one';
         }
         /* if (usersArray.some(objUser => objUser.password === newUsers.password)) {
             registerError.style.display = 'block';

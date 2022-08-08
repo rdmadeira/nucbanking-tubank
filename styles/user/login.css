@@ -1,0 +1,5 @@
+#register-error {
+    color: #a90000;
+    font-weight: 600;
+    font-size: min(2.5vw,24px);
+}
