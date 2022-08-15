@@ -29,10 +29,8 @@ function cleanSpanAndBorder(el) {
 }
 function saveUser(e) {
     e.preventDefault();
-    //if (registerError.firstChild) {
-        // registerError.removeChild(registerError.firstChild);
     registerError.style.visibility = 'hidden';
-    //}
+    
     const name = nameInput.value;
     const lastname = lastnameInput.value;
     const username =  userInput.value;
@@ -54,7 +52,7 @@ function saveUser(e) {
             passwordInput.style.outline = 'red 3px solid';
         }
     } else {
-        let newUsers = {
+        /* let newUsers = {
             name: name,
             lastname: lastname,
             username: username,
@@ -63,18 +61,37 @@ function saveUser(e) {
             cbu: uuidv4(),
             services: [],
             savedUsers: [],
+        } */
+        class User {
+            constructor(name, lastname, username, password) {
+                this.name = name;
+                this.lastname = lastname;
+                this.username = username;
+                this.password = password;
+                this.cbu = null;
+                this.amount = 0;
+                this.services = [];
+                this.savedUsers = [];
+            }
+            createCBU() {
+                this.cbu = uuidv4();
+            }
+            checkUser() {
+                return usersArray.some(item => item.username === this.username);
+            }
         }
-        if (usersArray.some(objUser => objUser.username === newUsers.username)) {
+
+        let newUser = new User(name, lastname, username, password);
+
+        if (newUser.checkUser()) {
             registerError.style.visibility = 'visible';
             userInput.style.outline = 'red 3px solid';
             return registerError.innerHTML = 'Username already exists! Choose another one';
         }
-        /* if (usersArray.some(objUser => objUser.password === newUsers.password)) {
-            registerError.style.display = 'block';
-            return registerError.appendChild(document.createTextNode('Choose another password'))
-        }  */
-        if (!usersArray.some(objUser => objUser.username === newUsers.username)) {
-            usersArray.push(newUsers);
+        
+        if (!newUser.checkUser()) {
+            usersArray.push(newUser);
+            newUser.createCBU();
             let users = JSON.stringify(usersArray);
             localStorage.setItem('users', users);
             setTimeout(()=>location.href = '../../public/user/login.html',2000);
